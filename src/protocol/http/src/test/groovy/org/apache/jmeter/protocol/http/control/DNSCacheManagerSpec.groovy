@@ -167,7 +167,7 @@ class DNSCacheManagerSpec extends Specification {
         given:
             sut.setCustomResolver(false)
         when:
-            InetAddress[] result = sut.resolve("www.example.org")
+            InetAddress[] result = sut.resolve("www.google.com")
         then:
             sut.resolver == null
             result != null
