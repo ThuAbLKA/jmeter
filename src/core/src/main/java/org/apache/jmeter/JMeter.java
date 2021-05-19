@@ -353,6 +353,7 @@ public class JMeter implements JMeterPlugin {
             D_REPORT_GENERATING_OPT,
             D_REPORT_AT_END_OPT,
             D_REPORT_OUTPUT_FOLDER_OPT,
+            D_LOAD_CLOUD_INFRA_FROM_FILE
     };
 
     /** Properties to be sent to remote servers */
@@ -363,6 +364,9 @@ public class JMeter implements JMeterPlugin {
 
     /** should delete result file / report folder before start ? */
     private boolean deleteResultFile = false;
+
+    /** filename of the cloud infrastructure definition **/
+    private String cloudInfraFile = "";
 
     public JMeter() {
         super();
@@ -962,6 +966,10 @@ public class JMeter implements JMeterPlugin {
                 break;
             case FORCE_DELETE_RESULT_FILE:
                 deleteResultFile = true;
+                break;
+            case LOAD_CLOUD_INFRA_FROM_FILE:
+                cloudInfraFile = value;
+                System.out.println("cloudFile >>>>>>>> " + cloudInfraFile);
                 break;
             default:
                 // ignored
