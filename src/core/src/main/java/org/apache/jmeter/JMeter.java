@@ -171,6 +171,9 @@ public class JMeter implements JMeterPlugin {
     private static final int REPORT_OUTPUT_FOLDER_OPT      = 'o';// $NON-NLS-1$
     private static final int FORCE_DELETE_RESULT_FILE      = 'f';// $NON-NLS-1$
 
+    // load and create cloud infrastructure from file
+    private static final int LOAD_CLOUD_INFRA_FROM_FILE = 'c';
+
     private static final int SYSTEM_PROPERTY    = 'D';// $NON-NLS-1$
     private static final int JMETER_GLOBAL_PROP = 'G';// $NON-NLS-1$
     private static final int PROXY_SCHEME       = 'E';// $NON-NLS-1$
@@ -295,10 +298,15 @@ public class JMeter implements JMeterPlugin {
             new CLOptionDescriptor("reportoutputfolder",
                     CLOptionDescriptor.ARGUMENT_REQUIRED, REPORT_OUTPUT_FOLDER_OPT,
                     "output folder for report dashboard");
-     private static final CLOptionDescriptor D_FORCE_DELETE_RESULT_FILE =
+    private static final CLOptionDescriptor D_FORCE_DELETE_RESULT_FILE =
             new CLOptionDescriptor("forceDeleteResultFile",
                     CLOptionDescriptor.ARGUMENT_DISALLOWED, FORCE_DELETE_RESULT_FILE,
                     "force delete existing results files and web report folder if present before starting the test");
+    private static final CLOptionDescriptor D_LOAD_CLOUD_INFRA_FROM_FILE =
+            new CLOptionDescriptor("loadCloudInfrastructureFromFile",
+                    CLOptionDescriptor.ARGUMENT_DISALLOWED, LOAD_CLOUD_INFRA_FROM_FILE,
+                    "Load and create infrastructure in cloud for distributed testing");
+
 
     private static final String[][] DEFAULT_ICONS = {
             { "org.apache.jmeter.control.gui.TestPlanGui",               "org/apache/jmeter/images/beaker.gif" },     //$NON-NLS-1$ $NON-NLS-2$
